@@ -1,3 +1,4 @@
+import client from "../Client/build";
 const express = require("express");
 const dotenv = require("dotenv");
 const colors = require("colors");
@@ -29,11 +30,11 @@ app.use("/api/v1/analytics", require("./routes/analyticsRoute"));
 app.use("/api/v1/admin", require("./routes/adminRoutes"));
 
 //static port
-app.use(express.static(path.join(__dirname, "./client/build")));
+app.use(express.static(path.join(__dirname, "./Client/build")));
 
 //static route
 app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./Client/build/index.html"));
 });
 
 //port
